@@ -18,7 +18,7 @@
 <body>
 
 
-    <div class="container mt-4">
+    <div class="container mt-4 fixed-top">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 d-flex">
             <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 50px; height: 50px;"><h1>uzz</h1>
@@ -64,34 +64,6 @@
         <div class="row">
 
             <div class="col-lg-3 col-md-6">
-                <div>
-                    <div>
-                        <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=day-giay-gi-l-p-giay-cao-su-giay-dep-1598505.jpg&fm=jpg" style="width: 100%">
-                    </div>
-                    <div>
-                        <div class="d-flex justify-content-between my-1">
-                            <span><small>April 10, 2019</small></span>
-                            <span><small>by HolyFirst</small></span>
-                        </div>
-                        <center>
-                            <h3>Beef Burger with French Fries and Salad</h3>
-                        </center>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=day-giay-gi-l-p-giay-cao-su-giay-dep-1598505.jpg&fm=jpg" style="width: 100%">
-                    </div>
-                    <div>
-                        <div class="d-flex justify-content-between my-1">
-                            <span><small>April 10, 2019</small></span>
-                            <span><small>by HolyFirst</small></span>
-                        </div>
-                        <center>
-                            <h3>Beef Burger with French Fries and Salad</h3>
-                        </center>
-                    </div>
-                </div>
                 @foreach($posts as $post)
                 <div>
                     <div>
