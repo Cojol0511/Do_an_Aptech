@@ -1,11 +1,14 @@
 @extends('layouts.header2')
 
+
 @section('content')
+
 
     <div class="container">
         <div class="row">
 
             <div class="col-lg-3 col-md-6">
+
                 <div>
                     <div>
                         <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=day-giay-gi-l-p-giay-cao-su-giay-dep-1598505.jpg&fm=jpg" style="width: 100%">
