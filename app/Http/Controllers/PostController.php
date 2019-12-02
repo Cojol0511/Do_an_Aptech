@@ -30,7 +30,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('posts.create');
+        return view('layouts.posts.CreatePost');
     }
 
     /**
@@ -41,7 +41,8 @@ class PostController extends Controller
      */
     public function store(Request $request, Post $post)
     {
-        //
+
+       
         // dd($request->title);
         // Post::insert([
         //     'title' => $_POST['title'],
