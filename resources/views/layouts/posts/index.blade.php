@@ -4,12 +4,11 @@
 @section('content')
    
     <div class="container">
-         <div class="row">
-           
+         <div class="row">       
             <div class="col-lg-3 col-md-6">
                  @foreach($posts as $post)
                     <form action="{{asset('posts/'.$post->id)}}" method="get">
-                    <button class="btn btn-white">
+                    <button type="submit" class="btn btn-white">
                     <div>
                         <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=day-giay-gi-l-p-giay-cao-su-giay-dep-1598505.jpg&fm=jpg" style="width: 100%">
                     </div>
@@ -63,6 +62,6 @@
        
         </div>
     </div>
- 
+
 @endsection
 

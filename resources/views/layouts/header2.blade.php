@@ -99,7 +99,7 @@
        
     </div>
      @yield('content')
-      <footer class="bg-light" style="height:400px">
+      <footer class="bg-light" style="height:200px">
           
       </footer>
     <!-- Scripts -->

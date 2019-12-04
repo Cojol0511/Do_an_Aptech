@@ -14,9 +14,5 @@
 			</div>
 		</div>
 	</div>
-		
-
-		<!-- //<h1>{{$posts}}</h1> -->
-
 
 @endsection
