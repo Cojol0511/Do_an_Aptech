@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Product;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -16,7 +17,12 @@ class PostController extends Controller
     {
         //
         $posts = Post::get();
-         return view('layouts.posts.index', ['posts' => $posts]);
+        $products = Product::get();
+         return view('layouts.posts.index', 
+         ['posts' => $posts,
+         'products' =>$products 
+        ]    
+        );
     }
 
     /**
