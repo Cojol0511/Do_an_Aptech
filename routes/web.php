@@ -1,5 +1,10 @@
 <?php
 
+
+
+use App\Post;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +16,10 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('auth.login');
+   		$posts = Post::get();
+       return view('layouts.posts.index', ['posts' => $posts]);
 });
 Auth::routes();
 

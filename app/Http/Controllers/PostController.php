@@ -16,10 +16,7 @@ class PostController extends Controller
     {
         //
         $posts = Post::get();
-        return view(
-            'layouts.posts.index',
-            ['posts' => $posts]
-        );
+         return view('layouts.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -62,10 +59,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
-        return view('posts.show', ['post' => $post]);
+       
+        $posts = Post::find($id);
+  
+        return view('layouts.posts.detailpost', ['posts' => $posts]);
     }
 
     /**
@@ -111,5 +110,9 @@ class PostController extends Controller
         //
         $post->delete();
         return redirect()->route('posts.index');
+    }
+    public function detailpost()
+    {
+
     }
 }

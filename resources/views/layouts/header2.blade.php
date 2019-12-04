@@ -15,7 +15,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
 <body>
-     <div class="container mt-4">
+     <div class="container mt-4 sticky-top bg-white">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 ">
             <a class="d-flex text-decoration-none" href="">
@@ -99,7 +99,9 @@
        
     </div>
      @yield('content')
-
+      <footer class="bg-light" style="height:400px">
+          
+      </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
