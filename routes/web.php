@@ -1,5 +1,10 @@
 <?php
 
+
+
+use App\Post;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +17,12 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+   		$posts = Post::get();
+       return view('layouts.posts.index', ['posts' => $posts]);
 });
 
 
 Route::resource('products', 'ProductController');   
-
-
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -29,4 +33,5 @@ Route::resource('posts', 'PostController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 

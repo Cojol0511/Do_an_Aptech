@@ -15,7 +15,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
 <body>
-     <div class="container mt-4">
+     <div class="container mt-4 sticky-top bg-white">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 ">
             <a class="d-flex text-decoration-none" href="">

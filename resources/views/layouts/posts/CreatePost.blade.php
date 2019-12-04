@@ -4,17 +4,8 @@
 
 	  	<div class="container my-2">
 			<div class="row">
-				<div class="col-2 border-right">
-					<h4 class="">Lựa chọn chủ đề </h4>
-					<select class="my-3 btn btn-success" name="" id="">
-						<option value="url('http://localhost/Aptech-php-21/php/DoAn-aptech/public/')">Quần Áo</option>
-						<option value="">Quần Áo</option>
-						<option value="">Quần s</option>
-						<option value="">Quần Áo</option>
-					</select>
-					
-				</div>
-				<div class="col-8 ">
+
+				<div class="col-12 ">
 					
 				<form action="{{route('posts.store')}} " method="post">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -26,13 +17,13 @@
 					<textarea cols="40" rows="10" name="content">
 						Nhập toàn bộ nội dụng của bài đăng
 					</textarea>
-					<button class="btn btn-success my-2" type="submit">
+					<button class=" btn btn-success my-2" type="submit">
 					<h6>Đăng Bài</h6>
 					</button>
 				</form>
 
 				</div>
-				<div class="col-2"></div>
+
 			</div>
 	</div>
 	<footer class="bg-light" style="height: 200px">
