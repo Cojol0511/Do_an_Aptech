@@ -16,8 +16,7 @@ class PostController extends Controller
     {
         //
         $posts = Post::get();
-
-       return view('layouts.posts.index', ['posts' => $posts]);
+         return view('layouts.posts.index', ['posts' => $posts]);
     }
 
     /**

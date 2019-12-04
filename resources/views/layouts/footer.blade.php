@@ -34,43 +34,7 @@
                         <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
-                 <div id="app" >                                     
-             
-                    <!-- Right Side Of Navbar -->
-                    <ul class=" navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt "></i></a>
-                            </li>
-                            <li><a href="{{ route('register') }}"><i class="far fa-registered "></i></a>
-                            </li>
-                        @else
-                            <li class="dropdown btn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                   <i class="fas fa-user-circle fa-2x"></i>
-                                </a> 
-
-                                <ul class="dropdown-menu border-dark">
-                                    <li >
-                                        <h5>Xin Chào :{{ Auth::user()->name }}</h5>
-                                    </li>
-                                    <li >
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                                                  
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-        
+               
               </div>
             </div>
 
@@ -98,10 +62,8 @@
         </div>
        
     </div>
-     @yield('content')
-      <footer class="bg-light" style="height:400px">
-          
-      </footer>
+     @yield('footer')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

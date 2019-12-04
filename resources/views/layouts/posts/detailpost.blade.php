@@ -9,7 +9,7 @@
 				<h1 class="text-center">{{$posts->title}}</h1>
 				<h4>{{$posts->description}}</h4>
 				<br>
-				<h6>{{$posts->content}}</h6>
+				<h6>{!!$posts->content!!}</h6>
 				<p class="ml-auto">{{$posts->created_at}}</p>
 			</div>
 		</div>
