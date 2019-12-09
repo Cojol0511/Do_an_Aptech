@@ -20,7 +20,7 @@ class PostController extends Controller
         $posts = Post::all();
         $products = Product::all();
         $image = image::all();
-         return view('layouts.home.index', 
+         return view('layouts.posts.index', 
          [
             'posts' => $posts,
             'products' =>$products ,

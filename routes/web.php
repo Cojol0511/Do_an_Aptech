@@ -18,7 +18,7 @@ Route::get('/', function () {
 	  $posts = Post::all();
         $products = Product::all();
         $image = image::all();
-         return view('layouts.home.index', 
+         return view('layouts.products.indexProduct', 
          [
             'posts' => $posts,
             'products' =>$products ,
@@ -48,5 +48,5 @@ Route::get('/account',function(){
 }) ->name('account');
 
 Route::get('/detail',function(){
-       return view('layouts.products.DetailProduct');  
+       return view('layouts.posts.index');  
 });
