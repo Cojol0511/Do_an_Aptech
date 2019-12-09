@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\Product;
+use App\image;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('posts.index');
+         $posts = Post::all();
+        $products = Product::all();
+        $image = image::all();
+         return view('layouts.home.index', 
+         [
+            'posts' => $posts,
+            'products' =>$products ,
+            'images' => $image
+        ]    
+        );
     }
 }

@@ -7,10 +7,13 @@
 
 				<div class="col-12 ">
 					
-				<form action="{{route('posts.store')}} " method="post">
+				<form action="{{route('posts.store')}} " method="post" enctype="multipart/form-data">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 					<label for=""><h5 class="text-dark">Tiêu Đề:</h5></label>
 					<input class="form-control" type="text" name="title" placeholder="Nhập chủ đề mà bạn muốn đăng">
+					<label for=""><h6>Chọn ảnh cho hiện thị trên bài viết :</h6>
+					</label>
+					<input class="btn" type="file" name="yourfile"><br>
 					<label for=""><h5 class="text-dark my-2">Mô tả:</h5></label>
 					<input class="form-control" type="text" name="description" placeholder="Nhập mô tả của bài đăng">
 					<label for=""><h5 class="text-dark my-2">Nội dung chính:</h5></label>

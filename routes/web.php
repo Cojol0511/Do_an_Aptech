@@ -1,10 +1,8 @@
 <?php
 
-
-
 use App\Post;
-
-
+use App\Product;
+use App\image;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,22 +15,38 @@ use App\Post;
 */
 
 Route::get('/', function () {
-   		$posts = Post::get();
-       return view('layouts.posts.index', ['posts' => $posts]);
+	  $posts = Post::all();
+        $products = Product::all();
+        $image = image::all();
+         return view('layouts.home.index', 
+         [
+            'posts' => $posts,
+            'products' =>$products ,
+            'images' => $image
+        ]    
+        );
 });
-
-
-Route::resource('products', 'ProductController');   
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::resource('posts', 'PostController');   
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::resource('users', 'UserController');
 
+Route::resource('products', 'ProductController');
+
+Route::resource('posts', 'PostController');
+
+
+Route::get('/profile',function(){
+	return view('layouts.user.profile');
+})->name('profile');
+
+Route::get('/account',function(){
+	return view('layouts.user.account');
+}) ->name('account');
+
+Route::get('/detail',function(){
+       return view('layouts.products.DetailProduct');  
+});

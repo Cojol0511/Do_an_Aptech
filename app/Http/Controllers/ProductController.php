@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Product;
+use App\image;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +16,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+          $posts = Post::all();
+        $products = Product::all();
+        $image = image::all();
+         return view('layouts.home.index', 
+         [
+            'posts' => $posts,
+            'products' =>$products ,
+            'images' => $image
+        ]    
+        );
     }
 
     /**
@@ -24,7 +35,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+         return view('layouts.products.CreateProduct');
     }
 
     /**
@@ -35,7 +46,37 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        if($request->hasFile('yourfile') == 0 || 
+            empty($request->name)            || 
+            empty($request->detail)          || 
+            empty($request->price)          ||
+            empty($request->type) )
+            {
+                 return redirect()->route('products.create');
+            }
+        else
+           {  
+              $product = new Product;       
+              $product->name = $request->name;
+              $product->price = $request->price;
+              $product->detail = $request->detail;
+              $product->size = $request->size;
+              $product->type = $request->type;
+               $product->save(); 
+              //lấy tên file gốc cộng thêm thời gian đang
+               $image = $request->yourfile;
+                $filename = date('YmdHis')."-" . $image->getClientOriginalName();
+              //lưu file 
+              $image->move('image',$filename);          
+                image::insert
+                ([
+                    'image' => $filename,
+                    'product_id' => $product ->id
+                ]);
+                return redirect()->route('products.index');
+           }
+              
     }
 
     /**
@@ -44,9 +85,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+         $images = image::all();
+       return view('layouts.products.DetailProduct',[
+            'product' =>$product,
+            'image' => $images
+       ]);
     }
 
     /**
