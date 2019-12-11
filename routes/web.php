@@ -30,3 +30,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('posts', 'PostController');   
+route::get('/sale',function(){
+    return view('sale');
+});
+route::get('/button',function(){
+    return view('button');
+});
