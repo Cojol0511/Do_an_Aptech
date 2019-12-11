@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Product;
+use App\image;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,11 +17,18 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::get();
-        return view(
-            'layouts.posts.index',
-            ['posts' => $posts]
+        $posts = Post::all();
+        $products = Product::all();
+        $image = image::all();
+         return view('layouts.posts.index', 
+         [
+            'posts' => $posts,
+            'products' =>$products ,
+            'images' => $image
+        ]    
         );
+
+
     }
 
     /**
@@ -29,8 +38,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
-        return view('posts.create');
+        return view('layouts.posts.CreatePost');
     }
 
     /**
@@ -40,19 +48,35 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Post $post)
-    {
-        //
-        // dd($request->title);
-        // Post::insert([
-        //     'title' => $_POST['title'],
-        //     'description' => $_POST['description'],
-        //     'content' => $_POST['content']
-        // ]);
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->content = $request->content;
-        $post->save();
-        return redirect()->route('posts.index');
+    {dd($request->all());
+        
+        if($request->hasFile('yourfile') == 0 || 
+            empty($request->title)            || 
+            empty($request->description)      || 
+            empty($request->content))
+            {
+                 return redirect()->route('posts.create');
+            }
+        else
+           {  
+              $post = new Post;       
+              $post->title = $request->title;
+              $post->description = $request->description;
+              $post->content = $request->content;
+               $post->save(); 
+              //lấy tên file gốc cộng thêm thời gian đang
+               $image = $request->yourfile;
+                $filename = date('YmdHis')."-" . $image->getClientOriginalName();
+              //lưu file 
+              $image->move('image',$filename);          
+                image::insert
+                ([
+                    'image' => $filename,
+                    'post_id' => $post ->id
+                ]);
+                return redirect()->route('posts.index');
+           }
+              
     }
 
     /**
@@ -61,10 +85,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
-        return view('posts.show', ['post' => $post]);
+       
+        $posts = Post::find($id);
+  
+        return view('layouts.posts.detailpost', ['posts' => $posts]);
     }
 
     /**
@@ -110,5 +136,9 @@ class PostController extends Controller
         //
         $post->delete();
         return redirect()->route('posts.index');
+    }
+    public function detailpost()
+    {
+
     }
 }

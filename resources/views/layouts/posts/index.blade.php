@@ -193,8 +193,12 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
+        <hr>
+        
 
     </div>
     <hr>
@@ -413,6 +417,10 @@
                         </ul>
 
                     </div>
+                    <center>
+                        <h3>Đón 2020 cùng Air Jordan 13 “Chinese New Year”</h3>
+                    </center>
+                    <button>Xem thêm >></button>
                 </div>
                 <hr>
                 <div class="eight-row">
@@ -647,7 +655,7 @@
                 <a href="#" class="d-inline-block p-3 text-white"><i class="fab fa-twitter fa-2px"></i></a>
                 <a href="#" class="d-inline-block p-3 text-white"><i class="far fa-envelope fa-2px"></i></a>
             </div>
-        </div>
+            
 
     </div>
 
