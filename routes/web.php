@@ -38,6 +38,8 @@ Route::resource('products', 'ProductController');
 
 Route::resource('posts', 'PostController');
 
+Route::resource('comments', 'CommentController');
+
 
 Route::get('/profile',function(){
 	return view('layouts.user.profile');

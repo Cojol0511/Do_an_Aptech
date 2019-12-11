@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Product;
 use App\image;
+use App\Comment;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,14 +17,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-          $posts = Post::all();
+        $posts = Post::all();
         $products = Product::all();
+        $comments = Comment::all();
         $image = image::all();
          return view('layouts.products.indexProduct', 
          [
             'posts' => $posts,
             'products' =>$products ,
-            'images' => $image
+            'images' => $image,
+            'comments' =>$comments
         ]    
         );
     }
@@ -50,8 +53,9 @@ class ProductController extends Controller
         if($request->hasFile('yourfile') == 0 || 
             empty($request->name)            || 
             empty($request->detail)          || 
-            empty($request->price)          ||
-            empty($request->type) )
+            empty($request->price)//||
+            //empty($request->type)
+             )
             {
                  return redirect()->route('products.create');
             }
@@ -62,7 +66,7 @@ class ProductController extends Controller
               $product->price = $request->price;
               $product->detail = $request->detail;
               $product->size = $request->size;
-              $product->type = $request->type;
+            //  $product->type = $request->type;
                $product->save(); 
               //lấy tên file gốc cộng thêm thời gian đang
                $image = $request->yourfile;
@@ -89,9 +93,14 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
          $images = image::all();
+         //$comments = Comment::where('product_id', $id)->get();
+         $comments = Comment::all();
+
        return view('layouts.products.DetailProduct',[
             'product' =>$product,
-            'image' => $images
+            'image' => $images,
+            'comments' =>$comments
+
        ]);
     }
 

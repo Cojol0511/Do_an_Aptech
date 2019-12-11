@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\image;
+use App\Brand;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ImageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\image  $image
+     * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show(image $image)
+    public function show(Brand $brand)
     {
         //
     }
@@ -52,10 +52,10 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\image  $image
+     * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function edit(image $image)
+    public function edit(Brand $brand)
     {
         //
     }
@@ -64,10 +64,10 @@ class ImageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\image  $image
+     * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, image $image)
+    public function update(Request $request, Brand $brand)
     {
         //
     }
@@ -75,10 +75,10 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\image  $image
+     * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(image $image)
+    public function destroy(Brand $brand)
     {
         //
     }

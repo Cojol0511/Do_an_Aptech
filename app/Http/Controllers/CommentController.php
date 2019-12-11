@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\image;
+use App\Comment;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,15 +36,21 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         //
+        $comment = new Comment;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->content = $request->content;
+        $comment->save();
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\image  $image
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(image $image)
+    public function show($id)
     {
         //
     }
@@ -52,10 +58,10 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\image  $image
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(image $image)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +70,10 @@ class ImageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\image  $image
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, image $image)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +81,10 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\image  $image
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(image $image)
+    public function destroy($id)
     {
         //
     }
