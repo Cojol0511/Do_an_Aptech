@@ -14,7 +14,7 @@
 
 					<label for=""><h5> Chọn Hình Ảnh Của Sản Phẩm :</h5>
 					</label>
-					<input class="btn btn-success" type="file" name="yourfile">
+					<input class="btn btn-success" type="file" name="yourfile[]" multiple>
 
 					<hr>
 					<label class="my-2" for=""><h5>Chọn Size :</h5></label>

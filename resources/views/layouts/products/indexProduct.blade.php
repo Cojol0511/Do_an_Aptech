@@ -3,13 +3,18 @@
 
 @section('content')
     <div class="container">
-         <div class="row">       
+         <div class="row">  
+         <?php
+                   dd($products->image->all()) ;
+                 ?>     
                @foreach($products as $product)
+
+             
                 <div class="col-lg-3 col-md-6 border mx-2">
                   <form action="{{asset('products/'.$product->id)}}" method="get">
                     <button type="submit" class="btn btn-white">
                     <div>                     
-                        <img src="{{asset('image/'.$images[$product->id -1]->image)}}" width="100%" height="150px">                
+                        <img src="{{asset('image/'.$images[$product->id - 1]->image)}}" width="100%" height="150px">                
                     </div>
                   
                         <div class="d-flex justify-content-between my-1">

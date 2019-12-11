@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
          $posts = Post::all();
         $products = Product::all();
-        $image = image::all();
+       $image = image::all();
          return view('layouts.products.indexProduct', 
          [
             'posts' => $posts,
