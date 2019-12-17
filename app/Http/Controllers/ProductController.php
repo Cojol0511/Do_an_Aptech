@@ -15,20 +15,16 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+      
           $posts = Post::all();
-          $products = Product::all();
-        // $products = Product::find(1)->image->toArray();
-        
-        // foreach ($products as $product) {
-        //    dd($product->image);
-        // }
-        $image = image::all()->toArray();
+          $products = Product::get();
+            $images = image::all();
          return view('layouts.products.indexProduct', 
          [
             'posts' => $posts,
             'products' =>$products ,
-            'images' => $image
+           'images' => $images 
         ]    
         );
     }
@@ -97,11 +93,14 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $product_images = Product::find($id) ->image ;
+        
         $product = Product::find($id);
-         $images = image::all();
+  
        return view('layouts.products.DetailProduct',[
             'product' =>$product,
-            'image' => $images
+            // 'images' => $images,
+            'product_images' => $product_images
        ]);
     }
 

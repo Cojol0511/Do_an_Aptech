@@ -2,24 +2,24 @@
 
 @section('content')
 	<div class="container">
-		
+	
 			<div class="row my-5">
 				
-				<!-- slide hien thi cho san pham -->
-		
 		
 				<div class="col-5">
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
  					 <div class="carousel-inner">
+ 				@foreach($product_images as $product_image)
  				   <div class="carousel-item active">
-     			 <img src="{{asset('image/'.$image[1]->image)}}" class="d-block w-100" alt="...">
+     			 <img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
    			 </div>
    			 <div class="carousel-item">
-   	   		<img src="{{asset('image/'.$image[2]->image)}}" class="d-block w-100" alt="...">
+   	   		<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
    		 </div>
    		 <div class="carousel-item">
-   		   <img src="{{asset('image/'.$image[0]->image)}}" class="d-block w-100" alt="...">
+   		   <img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
   		  </div>
+  		  @endforeach
  			 </div>
  		 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
  		   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,7 +54,7 @@
 					<hr>
 					<b>Loại Hàng : {{$product -> type}}</b>
 					<hr>
-					
+			
 				</div>
 				<div class="col-1"></div>
 			</div>

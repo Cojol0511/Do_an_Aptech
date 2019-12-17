@@ -4,12 +4,10 @@
 @section('content')
     <div class="container">
          <div class="row">  
-         <?php
-                   dd($products->image->all()) ;
-                 ?>     
+       
                @foreach($products as $product)
-
-             
+                    
+            
                 <div class="col-lg-3 col-md-6 border mx-2">
                   <form action="{{asset('products/'.$product->id)}}" method="get">
                     <button type="submit" class="btn btn-white">
