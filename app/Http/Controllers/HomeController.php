@@ -26,15 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-         $posts = Post::all();
+        $posts = Post::all();
         $products = Product::all();
         $image = image::all();
-         return view('layouts.products.indexProduct', 
-         [
-            'posts' => $posts,
-            'products' =>$products ,
-            'images' => $image
-        ]    
+        return view(
+            'layouts.products.indexProduct',
+            [
+                'posts' => $posts,
+                'products' => $products,
+                'images' => $image
+            ]
         );
     }
 }

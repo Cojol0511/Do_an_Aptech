@@ -46,7 +46,7 @@ class CommentController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *g
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

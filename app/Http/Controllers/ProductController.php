@@ -21,6 +21,14 @@ class ProductController extends Controller
         $products = Product::all();
         $comments = Comment::all();
         $image = image::all();
+          $posts = Post::all();
+          $products = Product::all();
+        // $products = Product::find(1)->image->toArray();
+        
+        // foreach ($products as $product) {
+        //    dd($product->image);
+        // }
+        $image = image::all()->toArray();
          return view('layouts.products.indexProduct', 
          [
             'posts' => $posts,
@@ -69,15 +77,20 @@ class ProductController extends Controller
             //  $product->type = $request->type;
                $product->save(); 
               //lấy tên file gốc cộng thêm thời gian đang
-               $image = $request->yourfile;
-                $filename = date('YmdHis')."-" . $image->getClientOriginalName();
-              //lưu file 
-              $image->move('image',$filename);          
+               $yourfile = $request -> yourfile;
+               foreach ($yourfile as $image) 
+               {
+                    
+                $filename = date('YmdHis')."-" . $image->getClientOriginalName();    
+               
+                 //lưu file 
+                  $image->move('image',$filename);          
                 image::insert
                 ([
                     'image' => $filename,
                     'product_id' => $product ->id
                 ]);
+                }
                 return redirect()->route('products.index');
            }
               
