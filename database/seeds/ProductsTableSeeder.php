@@ -18,8 +18,10 @@ class ProductsTableSeeder extends Seeder
             # code...
             Product::insert([
                 'name' => $faker-> name(),
-                'buyer' => $faker-> firstName(),
-                'price' => $faker-> randomNumber()
+                'size' => $faker-> numberBetween($min = 28, $max = 36),
+                'price' => $faker-> randomNumber(),
+                'brand' => $faker->numberBetween($min = 0, $max = 10),
+                'detail' => $faker->text(20),
             ]);
         }
     }
