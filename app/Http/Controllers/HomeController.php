@@ -28,14 +28,13 @@ class HomeController extends Controller
     {
         $posts = Post::all();
         $products = Product::all();
-        $image = image::all();
-        return view(
-            'layouts.products.indexProduct',
-            [
-                'posts' => $posts,
-                'products' => $products,
-                'images' => $image
-            ]
+       $image = image::all();
+         return view('layouts.posts.index', 
+         [
+            'posts' => $posts,
+            'products' =>$products ,
+            'images' => $image
+        ]    
         );
     }
 }

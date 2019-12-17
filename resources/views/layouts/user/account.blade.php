@@ -53,7 +53,7 @@
             </div>
 
         </div>
-        <div class="four-row mt-2 align-items-center">
+        <div class="four-row mt-2">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button id="shop" type="button" class="btn d-block text-dark btn-outline-secondary">Mặt hàng</button>
                 <button id="post" type="button" class="btn text-dark btn-outline-secondary">Bài viết</button>
