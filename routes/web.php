@@ -48,12 +48,8 @@ Route::get('/account',function(){
 }) ->name('account');
 
 Route::resource('posts', 'PostController');   
-route::get('/sale',function(){
-    return view('sale');
-});
-route::get('/button',function(){
-    return view('button');
-});
+
+
 Route::get('/detail',function(){
        return view('layouts.posts.index');  
 });

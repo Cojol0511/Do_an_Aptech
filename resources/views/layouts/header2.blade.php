@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>HOME</title>
+    <title>BUZZ</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('bootstrap.css')}}">
@@ -18,91 +18,90 @@
 
 <body>
     <div class="container mt-4 sticky-top bg-white">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6 ">
-                <a class="d-flex text-decoration-none" href="http://localhost:8000/">
-                    <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 50px; height: 50px;">
-                    <h1 class="text-dark">uzz</h1>
-                </a>
-            </div>
-            <div class="col-12 col-lg-6 ml-auto d-flex">
-                <div class="ml-md-auto top-social d-none d-lg-inline-block">
-                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fab fa-instagram fa-2x"></i></a>
+        <div class="container mt-2">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-4 mt-4 d-flex">
+                    <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
+                    <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
+
                 </div>
-                <form action="#" class="search-form d-inline-block mt-2">
-                    <div class="d-flex">
-                        <input type="email" class="form-control" placeholder="Search...">
-                        <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                <div class="col-12 col-lg-4 d-flex">
+                    <form action="#" class="search-form d-inline-block mt-2">
+                        <div class="d-flex">
+                            <input type="email" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4 ml-auto d-flex">
+                    <div class="ml-md-auto top-social d-none d-lg-inline-block">
+                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-bullhorn fa-2px"></i></a>
+                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-comment fa-2px"></i></a>
+                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
+
                     </div>
-                </form>
-                <div id="app">
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class=" navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt "></i></a>
-                        </li>
-                        <li><a href="{{ route('register') }}"><i class="far fa-registered "></i></a>
-                        </li>
-                        @else
-                        <li class="dropdown btn">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                <i class="fas fa-user-circle fa-2x"></i>
-                            </a>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <div id="app">
 
-                            <ul class="dropdown-menu ">
-                                <li>
-                                    <a href="{{route('profile')}}">Xin Chào :{{ Auth::user()->name }}</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                                <!-- Right Side Of Navbar -->
+                                <ul class=" navbar-right ">
+                                    <!-- Authentication Links -->
+                                    @guest
+                                    <li><a href="{{ route('login') }}">Đăng nhập</a>
+                                    </li>
+                                    <li><a href="{{ route('register') }}">Tạo tài khoản</a>
+                                    </li>
+                                    @else
+                                    <li class="dropdown btn">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                            <i class="fas fa-user-circle fa-2x"></i>
+                                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a href="{{route('profile')}}">Xin Chào :{{ Auth::user()->name }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                                                    Logout
+                                                </a>
 
-                            </ul>
-                        </li>
-                        @endguest
-                    </ul>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    @endguest
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 </div>
+
+
             </div>
 
         </div>
-        <hr>
-        <div class="row my-3">
-            <div class="d-flex justify-content-between w-100">
-                <div>
-                    <ul class="list-unstyled d-flex">
-                        <li class="mx-4">Adidas</li>
-                        <li class="mx-4">Nike</li>
-                        <li class="mx-4">Champion</li>
-                        <li class="mx-4">...</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="list-unstyled d-flex">
-                        <li class="mx-4">Liked</li>
-                        <li class="mx-4">Saved</li>
-                        <li class="mx-4">Poseted</li>
-                        <li class="mx-4">...</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
 
     </div>
+    <hr>
+
+
 
     @yield('content')
-  <!--   <div class="container-fluid fixed-bottom  ">
+    <!--   <div class="container-fluid fixed-bottom  ">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -129,6 +128,42 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script language="javascript">
+    $(document).ready(function() {
+        $(baiviet).click(function() {
+            $(hang).hide();
+            $(bai).show();
+
+
+        })
+
+    })
+    $(document).ready(function() {
+        $(muahang).click(function() {
+            $(bai).hide();
+            $(hang).show();
+        })
+    })
+</script>
+<script language="javascript">
+    var i = 1;
+    $(document).ready(function() {
+        $(select).click(function() {
+            i++;
+            if (i % 2 == 0) {
+                $(menu).show();
+                $(an).hide();
+            } else {
+                $(an).show();
+                $(menu).hide();
+            }
+            console.log(i);
+
+
+
+        })
+    })
+</script>
 </body>
 
 </html>
