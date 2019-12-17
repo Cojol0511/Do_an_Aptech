@@ -18,10 +18,10 @@ class CreateCommentsTable extends Migration
             $table->string('email');
             $table->string('name');
             $table->string('content');
-            // $table->integer('product_id')->unsigned();
-            // $table->foreign('product_id')
-            //     ->references('id')->on('products')
-            //     ->onDelete('cascade');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')
+                ->references('id')->on('products')
+                ->onDelete('cascade');
             $table->timestamps();
 
         });

@@ -1,12 +1,12 @@
 <?php
 
 namespace App;
-use App\Product;
+
 use Illuminate\Database\Eloquent\Model;
 
 class image extends Model
 {
-   public function Product()
+   public function product()
    {
    		return $this->belongsTo('App\Product');
    }

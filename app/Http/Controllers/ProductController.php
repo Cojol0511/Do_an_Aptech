@@ -22,13 +22,8 @@ class ProductController extends Controller
         $comments = Comment::all();
         $image = image::all();
           $posts = Post::all();
-          $products = Product::all();
-        // $products = Product::find(1)->image->toArray();
-        
-        // foreach ($products as $product) {
-        //    dd($product->image);
-        // }
-        $image = image::all()->toArray();
+          $products = Product::get();
+            $images = image::all();
          return view('layouts.products.indexProduct', 
          [
             'posts' => $posts,
@@ -104,6 +99,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $product_images = Product::find($id) ->image ;
+        
         $product = Product::find($id);
          $images = image::all();
          //$comments = Comment::where('product_id', $id)->get();
