@@ -17,86 +17,86 @@
 </head>
 
 <body>
-    <div class="container mt-4 sticky-top bg-white">
-        <div class="container mt-2">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-4 mt-4 d-flex">
-                    <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
-                    <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
+    <div class="container mt-1 sticky-top bg-white">
 
-                </div>
-                <div class="col-12 col-lg-4 d-flex">
-                    <form action="#" class="search-form d-inline-block mt-2">
-                        <div class="d-flex">
-                            <input type="email" class="form-control" placeholder="Search...">
-                            <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-12 col-lg-4 ml-auto d-flex">
-                    <div class="ml-md-auto top-social d-none d-lg-inline-block">
-                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-bullhorn fa-2px"></i></a>
-                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-comment fa-2px"></i></a>
-                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
-
-                    </div>
-                    
-                    <div id="app">
-                        
-
-                                <!-- Right Side Of Navbar -->
-                                <ul class=" navbar-right ">
-                                    <!-- Authentication Links -->
-                                    @guest
-                                    <li><a href="{{ route('login') }}">Đăng nhập</a>
-                                    </li>
-                                    <li><a href="{{ route('register') }}">Tạo tài khoản</a>
-                                    </li>
-                                    @else
-                                    <li class="dropdown btn ">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                            <i class="fas fa-user-circle fa-2x"></i>
-                                        </a>
-
-                                        <ul class="dropdown-menu unstyled ">
-                                            <li>
-                                                <a href="{{route('profile')}}">Trang cá nhân</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('profile')}}">Cài đặt</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">
-                                                    Logout
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-                                    @endguest
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-2 mt-4 d-flex">
+                <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
+                <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
 
             </div>
+            <div class="col-12 col-lg-6 d-flex">
+                <form action="#" class="search-form d-inline-block " style="width:100%">
+                    <div class="d-flex">
+                        <input type="email" class="form-control" placeholder="Search...">
+                        <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 ml-auto d-flex">
+                <div class="ml-md-auto top-social d-none d-lg-inline-block">
+                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-bullhorn fa-2px"></i></a>
+                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-comment fa-2px"></i></a>
+                    <a href="http://127.0.0.1:8000/profile" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
 
+                </div>
+
+                <div id="app" >
+
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-right">
+                        <!-- Authentication Links -->
+                        @guest 
+                        <li><a href="{{ route('login') }}"><i class="fas fa-user-alt text-dark"> Đăng nhập</i></a>
+                        </li>
+                        <li><a href="{{ route('register') }}"><i class="fas fa-lock text-dark"> Đăng ký</i></a>
+                        </li>
+                        @else
+                        <li class="dropdown btn ">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                <i class="fas fa-user-circle fa-2x text-dark"></i>
+                            </a>
+
+                            <ul class="dropdown-menu unstyled ">
+                                <li>
+                                    <a href="{{route('profile')}}">Trang cá nhân</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('profile')}}">Cài đặt</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                                        Đăng xuất
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
+                        @endguest
+                    </ul>
+
+                </div>
+            </div>
         </div>
 
 
+
     </div>
-    
+
+
+
+
+    </div>
+
+
+    </div>
+
 
 
 
