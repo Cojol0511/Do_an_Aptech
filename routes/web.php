@@ -18,7 +18,7 @@ Route::get('/', function () {
 	  $posts = Post::all();
         $products = Product::all();
         $image = image::all();
-         return view('layouts.products.indexProduct', 
+         return view('layouts.posts.index', 
          [
             'posts' => $posts,
             'products' =>$products ,

@@ -40,12 +40,9 @@
                         <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
 
                     </div>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <div id="app">
+                    
+                    <div id="app">
+                        
 
                                 <!-- Right Side Of Navbar -->
                                 <ul class=" navbar-right ">
@@ -56,14 +53,17 @@
                                     <li><a href="{{ route('register') }}">Tạo tài khoản</a>
                                     </li>
                                     @else
-                                    <li class="dropdown btn">
+                                    <li class="dropdown btn ">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                             <i class="fas fa-user-circle fa-2x"></i>
                                         </a>
 
-                                        <ul class="dropdown-menu ">
+                                        <ul class="dropdown-menu unstyled ">
                                             <li>
-                                                <a href="{{route('profile')}}">Xin Chào :{{ Auth::user()->name }}</a>
+                                                <a href="{{route('profile')}}">Trang cá nhân</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('profile')}}">Cài đặt</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -96,7 +96,7 @@
 
 
     </div>
-    <hr>
+    
 
 
 
@@ -129,41 +129,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script language="javascript">
-    $(document).ready(function() {
-        $(baiviet).click(function() {
-            $(hang).hide();
-            $(bai).show();
+        $(document).ready(function() {
+            $(baiviet).click(function() {
+                $(hang).hide();
+                $(bai).show();
 
 
-        })
-
-    })
-    $(document).ready(function() {
-        $(muahang).click(function() {
-            $(bai).hide();
-            $(hang).show();
-        })
-    })
-</script>
-<script language="javascript">
-    var i = 1;
-    $(document).ready(function() {
-        $(select).click(function() {
-            i++;
-            if (i % 2 == 0) {
-                $(menu).show();
-                $(an).hide();
-            } else {
-                $(an).show();
-                $(menu).hide();
-            }
-            console.log(i);
-
-
+            })
 
         })
-    })
-</script>
+        $(document).ready(function() {
+            $(muahang).click(function() {
+                $(bai).hide();
+                $(hang).show();
+            })
+        })
+    </script>
+    <script language="javascript">
+        var i = 1;
+        $(document).ready(function() {
+            $(select).click(function() {
+                i++;
+                if (i % 2 == 0) {
+                    $(menu).show();
+                    $(an).hide();
+                } else {
+                    $(an).show();
+                    $(menu).hide();
+                }
+                console.log(i);
+
+
+
+            })
+        })
+    </script>
 </body>
 
 </html>
