@@ -20,11 +20,12 @@
     <div class="container mt-4 sticky-top bg-white">
         <div class="container mt-2">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-4 mt-4 d-flex">
-                    <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
-                    <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
+                
+                   <a  class="col-12 col-lg-4 mt-4 d-flex text-decoration-none text-dark" href="{{asset("/")}}">
+                   <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
+                    <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3></a>
 
-                </div>
+                
                 <div class="col-12 col-lg-4 d-flex">
                     <form action="#" class="search-form d-inline-block mt-2">
                         <div class="d-flex">
@@ -40,11 +41,7 @@
                         <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
 
                     </div>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                  
                             <div id="app">
 
                                 <!-- Right Side Of Navbar -->
@@ -67,7 +64,7 @@
                                             </li>
                                             <li>
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">
+                                                  document.getElementById('logout-form').submit();">
                                                     Logout
                                                 </a>
 
