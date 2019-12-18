@@ -100,11 +100,13 @@
 			@endforeach
 		</div>
 	</div>
+
+
+
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12 col-md-4">
+<div class="row">
+	<div class="col-12">
 		<b>Có Thể Bạn Cũng Thích</b>
 		<div class="d-flex my-3">
 			<form class="mx-4" action="">
@@ -134,10 +136,9 @@
 			</form>
 
 		</div>
-		</div>
 	</div>
 </div>
-
+</div>
 <footer class="bg-light" style="height: 300px;">
 
 </footer>

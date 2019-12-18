@@ -1,9 +1,9 @@
 <?php
 
-use App\Product;
+use App\Comment;
 use Illuminate\Database\Seeder;
 
-class ProductsTableSeeder extends Seeder
+class CommentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,10 +16,8 @@ class ProductsTableSeeder extends Seeder
         $faker = Faker\Factory::create();
         for ($i=0; $i < 5; $i++) { 
             # code...
-            Product::insert([
-                'product_name' => $faker-> name(),
-                'brand_id' => 1,
-                'comment_id' => 1,
+            Comment::insert([
+                'comment_name' => $faker-> firstName()
             ]);
         }
     }

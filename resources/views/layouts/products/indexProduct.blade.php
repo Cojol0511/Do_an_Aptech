@@ -2,9 +2,8 @@
 
 
 @section('content')
-
-<br>
-<div class="container ">
+ádads
+<div class="container">
     <div class="row">
         @foreach($products as $product)
         <div class="col-lg-4 col-md-6 item-container mx-2 ">

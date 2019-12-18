@@ -17,29 +17,19 @@
 </head>
 
 <body>
-    <div class="container mt-4 sticky-top bg-white">
-        <div class="container mt-2">
-            <div class="row align-items-center">
-                
-                   <a  class="col-12 col-lg-4 mt-4 d-flex text-decoration-none text-dark" href="{{asset("/")}}">
-                   <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
-                    <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3></a>
+    <div class="container mt-1 sticky-top bg-white">
 
-                
-                <div class="col-12 col-lg-4 d-flex">
-                    <form action="#" class="search-form d-inline-block mt-2">
-                        <div class="d-flex">
-                            <input type="email" class="form-control" placeholder="Search...">
-                            <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-12 col-lg-4 ml-auto d-flex">
-                    <div class="ml-md-auto top-social d-none d-lg-inline-block">
-                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-bullhorn fa-2px"></i></a>
-                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-comment fa-2px"></i></a>
-                        <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-2 mt-4 d-flex">
+                <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
+                <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
 
+            </div>
+            <div class="col-12 col-lg-6 d-flex">
+                <form action="#" class="search-form d-inline-block " style="width:100%">
+                    <div class="d-flex">
+                        <input type="email" class="form-control" placeholder="Search...">
+                        <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
                     </div>
                     
                     <div id="app">
@@ -72,32 +62,32 @@
                                                     Logout
                                                 </a>
 
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
-                                            </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
 
-                                        </ul>
-                                    </li>
-                                    @endguest
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-
-
+                            </ul>
+                        </li>
+                        @endguest
+                    </ul>
 
                 </div>
-
-
             </div>
-
         </div>
 
 
+
     </div>
-    
+
+
+
+
+    </div>
+
+
+    </div>
+
 
 <hr>
 

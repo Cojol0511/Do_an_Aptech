@@ -21,16 +21,17 @@ class ProductController extends Controller
         $products = Product::all();
         $comments = Comment::all();
         $image = image::all();
-          $posts = Post::all();
-          $products = Product::get();
-            $images = image::all();
-         return view('layouts.products.indexProduct', 
-         [
-            'posts' => $posts,
-            'products' =>$products ,
-            'images' => $image,
-            'comments' =>$comments
-        ]    
+        $posts = Post::all();
+        $products = Product::get();
+        $images = image::all();
+        return view(
+            'layouts.products.indexProduct',
+            [
+                'posts' => $posts,
+                'products' => $products,
+                'images' => $image,
+                'comments' => $comments
+            ]
         );
     }
 
@@ -41,7 +42,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-         return view('layouts.products.CreateProduct');
+        return view('layouts.products.CreateProduct');
     }
 
     /**
@@ -52,43 +53,38 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-      
-        if($request->hasFile('yourfile') == 0 || 
-            empty($request->name)            || 
-            empty($request->detail)          || 
-            empty($request->price)//||
+
+        if (
+            $request->hasFile('yourfile') == 0 ||
+            empty($request->name)            ||
+            empty($request->detail)          ||
+            empty($request->price) //||
             //empty($request->type)
-             )
-            {
-                 return redirect()->route('products.create');
-            }
-        else
-           {  
-              $product = new Product;       
-              $product->name = $request->name;
-              $product->price = $request->price;
-              $product->detail = $request->detail;
-              $product->size = $request->size;
+        ) {
+            return redirect()->route('products.create');
+        } else {
+            $product = new Product;
+            $product->name = $request->name;
+            $product->price = $request->price;
+            $product->detail = $request->detail;
+            $product->size = $request->size;
             //  $product->type = $request->type;
-               $product->save(); 
-              //lấy tên file gốc cộng thêm thời gian đang
-               $yourfile = $request -> yourfile;
-               foreach ($yourfile as $image) 
-               {
-                    
-                $filename = date('YmdHis')."-" . $image->getClientOriginalName();    
-               
-                 //lưu file 
-                  $image->move('image',$filename);          
-                image::insert
-                ([
-                    'image' => $filename,
-                    'product_id' => $product ->id
-                ]);
-                }
-                return redirect()->route('products.index');
-           }
-              
+            $product->save();
+            //lấy tên file gốc cộng thêm thời gian đang
+            $yourfile = $request->yourfile;
+            foreach ($yourfile as $image) {
+
+                $filename = date('YmdHis') . "-" . $image->getClientOriginalName();
+
+                //lưu file 
+                $image->move('image', $filename);
+                image::insert([
+                        'image' => $filename,
+                        'product_id' => $product->id
+                    ]);
+            }
+            return redirect()->route('products.index');
+        }
     }
 
     /**
@@ -99,19 +95,19 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product_images = Product::find($id) ->image ;
-      //  dd($product_images);
+        $product_images = Product::find($id)->image;
+
         $product = Product::find($id);
-       //  $images = image::all();
-         //$comments = Comment::where('product_id', $id)->get();
-         $comments = Comment::all();
+        $images = image::all();
+        //$comments = Comment::where('product_id', $id)->get();
+        $comments = Comment::all();
 
-       return view('layouts.products.DetailProduct',[
-            'product' =>$product,
-            'product_images' => $product_images,
-            'comments' =>$comments
+        return view('layouts.products.DetailProduct', [
+            'product' => $product,
+            'image' => $images,
+            'comments' => $comments
 
-       ]);
+        ]);
     }
 
     /**

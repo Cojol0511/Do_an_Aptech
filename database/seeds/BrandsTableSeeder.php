@@ -14,9 +14,9 @@ class BrandsTableSeeder extends Seeder
     {
       
         Brand::insert([
-            ['name' => 'Supreme'],
-            ['name' => 'Chmapion'],
-            ['name' => 'Carhart'],
+            ['brand_name' => 'Supreme'],
+            ['brand_name' => 'Chmapion'],
+            ['brand_name' => 'Carhart'],
         ]);
     }
 }
