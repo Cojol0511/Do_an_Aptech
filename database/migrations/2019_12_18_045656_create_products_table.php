@@ -15,12 +15,6 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_brand')->unsigned();
-            $table->foreign('id_brand')->references('id')->on('brands');
-            $table->integer('id_comment')->unsigned();
-            $table->foreign('id_comment')->references('id')->on('comments');
-            $table->integer('id_image')->unsigned();
-            $table->foreign('id_image')->references('id')->on('images');
             $table->timestamps();
         });
     }

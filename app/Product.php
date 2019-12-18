@@ -17,5 +17,9 @@ class Product extends Model
 	public function brand()
 	{
     	return $this->hasOne('App\Brand');
+	}
+	public function image()
+	{
+    	return $this->belongsToMany('App\Image');
     }
 }
