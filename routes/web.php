@@ -2,7 +2,7 @@
 
 use App\Post;
 use App\Product;
-use App\image;
+use App\Image;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ use App\image;
 Route::get('/', function () {
 	  $posts = Post::all();
         $products = Product::all();
-        $image = image::all();
+        $image = Image::all();
          return view('layouts.posts.index', 
          [
             'posts' => $posts,

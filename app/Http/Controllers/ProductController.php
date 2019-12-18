@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Product;
-use App\image;
+use App\Image;
 use App\Comment;
 use Illuminate\Http\Request;
 
@@ -81,7 +81,7 @@ class ProductController extends Controller
 
                 //lưu file 
                 $image->move('image', $filename);
-                image::insert([
+                Image::insert([
                         'name_image' => $filename,
                         'product_id' => $product->id
                     ]);
@@ -99,7 +99,7 @@ class ProductController extends Controller
     public function show($id)
     {      
         $product = Product::find($id);
-        $images = image::where('product_id',$id)->get();
+        $images = Image::where('product_id',$id)->get();
         //$comments = Comment::where('product_id', $id)->get();
         $comments = Comment::where('product_id',$id)->get();
 
