@@ -11,17 +11,15 @@
 		<div class="col-5">
 			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
-				@foreach($product_images as $product_image)
 					<div class="carousel-item active">
-						<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
+						<img src="{{asset('image/'.$image[0]->image)}}" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
+						<img src="{{asset('image/'.$image[0]->image)}}" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
+						<img src="{{asset('image/'.$image[0]->image)}}" class="d-block w-100" alt="...">
 					</div>
-				@endforeach
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -100,11 +98,13 @@
 			@endforeach
 		</div>
 	</div>
+
+
+
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12 col-md-4">
+<div class="row">
+	<div class="col-12">
 		<b>Có Thể Bạn Cũng Thích</b>
 		<div class="d-flex my-3">
 			<form class="mx-4" action="">
@@ -134,10 +134,9 @@
 			</form>
 
 		</div>
-		</div>
 	</div>
 </div>
-
+</div>
 <footer class="bg-light" style="height: 300px;">
 
 </footer>

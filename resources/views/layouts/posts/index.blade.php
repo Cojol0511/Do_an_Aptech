@@ -2,12 +2,9 @@
 
 @section('content')
 
-
-<hr>
 <div class="row justify-content-center my-3" style="width:100%">
     <div class="btn-group" role="group" aria-label="Basic example">
         <button id="baiviet" type="button" class="btn btn-dark">Bài viết</button>
-
         <button id="muahang" type="button" class="btn btn-dark">Mua hàng</button>
     </div>
 </div>
@@ -162,7 +159,7 @@
 <div id="hang" style="display:none;" class="container flex-column mb-2">
     <div class="first-row d-flex">
         <div id="select" class="col-2 align-items-center">
-            <button><a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-list-ul"></i></a></button>
+            <button class="btn btn-success"><a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-list-ul"></i></a></button>
             <p>Lựa chọn</p>
 
         </div>

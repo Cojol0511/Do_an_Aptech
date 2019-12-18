@@ -30,8 +30,8 @@
 					<input class="form-control w-25" type="text" name="price" 
 					placeholder="Nhập Giá Của Sản Phẩm">
 				
-					<label for=""><h5 class="text-dark my-2">Loại Hàng :</h5></label>
-					<input class="form-control w-25" type="text" name="type" placeholder="Nhập mô tả của bài đăng">
+					<!-- <label for=""><h5 class="text-dark my-2">Loại Hàng :</h5></label>
+					<input class="form-control w-25" type="text" name="brand" placeholder="Nhập mô tả của bài đăng"> -->
 
 					<label for=""><h5 class="text-dark my-2">Chi Tiết Sản Phẩm:</h5>
 					</label>

@@ -18,7 +18,7 @@ Route::get('/', function () {
 	  $posts = Post::all();
         $products = Product::all();
         $image = image::all();
-         return view('layouts.products.indexProduct', 
+         return view('layouts.posts.index', 
          [
             'posts' => $posts,
             'products' =>$products ,
@@ -37,6 +37,8 @@ Route::resource('users', 'UserController');
 Route::resource('products', 'ProductController');
 
 Route::resource('posts', 'PostController');
+
+Route::resource('comments', 'CommentController');
 
 
 Route::get('/profile',function(){
