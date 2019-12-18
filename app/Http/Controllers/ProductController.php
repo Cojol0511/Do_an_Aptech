@@ -20,16 +20,19 @@ class ProductController extends Controller
         $posts = Post::all();
         $products = Product::all();
         $comments = Comment::all();
-        $image = image::all();
-        $posts = Post::all();
-        $products = Product::get();
-        $images = image::all();
+        // foreach($products as $product)
+        // {
+        //     echo($product->id);
+           
+        //     $image = image::where('id_product', $product->id)>first();
+           
+        // } dd($image);
+       
         return view(
             'layouts.products.indexProduct',
             [
                 'posts' => $posts,
                 'products' => $products,
-                'images' => $image,
                 'comments' => $comments
             ]
         );
@@ -66,7 +69,7 @@ class ProductController extends Controller
             $product = new Product;
             $product->name = $request->name;
             $product->price = $request->price;
-            $product->detail = $request->detail;
+            $product->detail_product = $request->detail;
             $product->size = $request->size;
             //  $product->type = $request->type;
             $product->save();
@@ -79,7 +82,7 @@ class ProductController extends Controller
                 //lưu file 
                 $image->move('image', $filename);
                 image::insert([
-                        'image' => $filename,
+                        'name_image' => $filename,
                         'product_id' => $product->id
                     ]);
             }
@@ -94,17 +97,16 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $product_images = Product::find($id)->image;
-
+    {      
         $product = Product::find($id);
-        $images = image::all();
+        $images = image::where('product_id',$id)->get();
         //$comments = Comment::where('product_id', $id)->get();
-        $comments = Comment::all();
+        $comments = Comment::where('product_id',$id)->get();
 
-        return view('layouts.products.DetailProduct', [
+        return view('layouts.products.detailproduct',
+         [
             'product' => $product,
-            'image' => $images,
+            'images' => $images,
             'comments' => $comments
 
         ]);

@@ -20,47 +20,57 @@
     <div class="container mt-1 sticky-top bg-white">
 
         <div class="row align-items-center">
-            <div class="col-12 col-lg-2 mt-4 d-flex">
+            <a  class="col-12 col-lg-2 mt-4 d-flex text-decoration-none text-dark"
+             href="{{asset("/")}}">
                 <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
                 <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
 
-            </div>
+            </a>
             <div class="col-12 col-lg-6 d-flex">
                 <form action="#" class="search-form d-inline-block " style="width:100%">
                     <div class="d-flex">
                         <input type="email" class="form-control" placeholder="Search...">
                         <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
                     </div>
-                    
-                    <div id="app">
-                        
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 ml-auto d-flex">
+                <div class="ml-md-auto top-social d-none d-lg-inline-block">
+                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-bullhorn fa-2px"></i></a>
+                    <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-comment fa-2px"></i></a>
+                    <a href="{{asset("/profile")}}" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
 
-                                <!-- Right Side Of Navbar -->
-                                <ul style="list-style: none;" class=" navbar-right ">
-                                    <!-- Authentication Links -->
-                                    @guest
-                                    <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i></a>
-                                    </li>
-                                    <li><a href="{{ route('register') }}"><i class="fas fa-sign-out-alt"></i></a>
-                                    </li>
-                                    @else
-                                    <li class="dropdown btn ">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                            <i class="fas fa-user-circle fa-2x"></i>
-                                        </a>
+                </div>
 
-                                        <ul class="dropdown-menu unstyled ">
-                                            <li>
-                                                <a href="{{route('profile')}}">Trang cá nhân</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('profile')}}">Cài đặt</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-                                                    Logout
-                                                </a>
+                <div id="app" >
+
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-right">
+                        <!-- Authentication Links -->
+                        @guest 
+                        <li><a href="{{ route('login') }}"><i class="fas fa-user-alt text-dark"> </i></a>
+                        </li>
+                        <li><a href="{{ route('register') }}"><i class="fas fa-lock text-dark"></i></a>
+                        </li>
+                        @else
+                        <li class="dropdown btn ">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                <i class="fas fa-user-circle fa-2x text-dark"></i>
+                            </a>
+
+                            <ul class="dropdown-menu unstyled ">
+                                <li>
+                                    <a href="{{route('profile')}}">{{Auth::user()->name}}</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('profile')}}">Cài đặt</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                                        Đăng xuất
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
@@ -75,43 +85,14 @@
                 </div>
             </div>
         </div>
-
-
-
+    </div>
     </div>
 
-
-
-
     </div>
-
-
-    </div>
-
-
 <hr>
 
-    @yield('content')
-    <!--   <div class="container-fluid fixed-bottom  ">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">NEWS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">MARKET</a>
-                    </li>
 
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        ...</div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+   @yield('content')
 
 
     <!-- Scripts -->
@@ -124,10 +105,7 @@
             $(baiviet).click(function() {
                 $(hang).hide();
                 $(bai).show();
-
-
             })
-
         })
         $(document).ready(function() {
             $(muahang).click(function() {
@@ -149,9 +127,6 @@
                     $(menu).hide();
                 }
                 console.log(i);
-
-
-
             })
         })
     </script>

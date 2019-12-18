@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-	 public function image()
-	 {
- 	return $this->hasMany('App\image');
-	 }
 	public function comment()
 	{
     	return $this->hasMany('App\Comment');
@@ -18,8 +14,8 @@ class Product extends Model
 	{
     	return $this->hasOne('App\Brand');
 	}
-	public function image()
+	public function images()
 	{
-    	return $this->belongsToMany('App\Image');
+    	return $this->hasMany('App\image');
     }
 }

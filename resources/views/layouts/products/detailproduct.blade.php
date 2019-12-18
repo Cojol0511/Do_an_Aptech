@@ -2,24 +2,22 @@
 
 @section('content')
 <div class="container">
-
 	<div class="row my-5">
 
 		<!-- slide hien thi cho san pham -->
 
-
 		<div class="col-5">
 			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
-				@foreach($product_images as $product_image)
+				@foreach($images as $image)
 					<div class="carousel-item active">
-						<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
+						<img src="{{asset('image/'.$image->name_image)}}" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
+						<img src="{{asset('image/'.$image->name_image)}}" class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="{{asset('image/'.$product_image->image)}}" class="d-block w-100" alt="...">
+						<img src="{{asset('image/'.$image->name_image)}}" class="d-block w-100" alt="...">
 					</div>
 				@endforeach
 				</div>
@@ -47,15 +45,13 @@
 				<button class=" w-100 btn btn-outline-success">Nhắn Tin</button>
 			</form>
 			<p>Lượt Thích</p>
-			<p>Bình Luận</p>
+		
 			<hr>
 			<b>Chi tiết sản phẩm:</b>
-			<p>{!!$product -> detail!!}</p>
+			<p>{!!$product -> detail_product!!}</p>
 			<hr>
 			<p class="text-muted">
 				Đăng lúc : {{$product -> created_at}}</p>
-			<hr>
-			<b>Loại Hàng : {{$product -> type}}</b>
 			<hr>
 
 		</div>
@@ -101,12 +97,8 @@
 		</div>
 	</div>
 
-
-
-</div>
-
-<div class="row">
-	<div class="col-12">
+	<div class="row">
+		<div class="col-12">
 		<b>Có Thể Bạn Cũng Thích</b>
 		<div class="d-flex my-3">
 			<form class="mx-4" action="">
@@ -136,8 +128,8 @@
 			</form>
 
 		</div>
+		</div>
 	</div>
-</div>
 </div>
 <footer class="bg-light" style="height: 300px;">
 

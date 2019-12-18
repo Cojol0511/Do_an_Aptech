@@ -2,15 +2,14 @@
 
 
 @section('content')
-ádads
 <div class="container">
     <div class="row">
         @foreach($products as $product)
-        <div class="col-lg-4 col-md-6 item-container mx-2 ">
+        <div class="col-lg-3 col-md-6 item-container mx-2 ">
             <form action="{{asset('products/'.$product->id)}}" method="get">
                 <button type="submit" class="btn btn-white">
                     <div>
-                        <img src="{{asset('image/'.$images[$product->id -1]->image)}}" width="100%" height="170px">
+                        <img src="{{asset('image/'.$product->images[0]->name_image)}}" width="100%" height="170px">
                     </div>
 
                     <div class="d-flex justify-content-between my-1">
@@ -30,3 +29,4 @@
 </div>
 
 @endsection
+

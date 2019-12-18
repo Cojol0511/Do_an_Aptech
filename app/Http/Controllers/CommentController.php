@@ -38,7 +38,6 @@ class CommentController extends Controller
         //
         $comment = new Comment;
         $comment->name = $request->name;
-        $comment->email = $request->email;
         $comment->content = $request->content;
         $comment->save();
         return back();
