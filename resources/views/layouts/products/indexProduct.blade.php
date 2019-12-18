@@ -2,6 +2,7 @@
 
 
 @section('content')
+ádads
 <div class="container">
     <div class="row">
         @foreach($products as $product)
