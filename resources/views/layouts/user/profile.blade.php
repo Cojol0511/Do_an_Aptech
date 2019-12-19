@@ -52,50 +52,34 @@
                 <div class="col-6">
                     <button class="btn btn-lg btn-block text-dark btn-outline-secondary " onclick="sanpham()">Sản Phẩm Đang Bán</button>
                 </div>
-            </div>
-
-        <div id="taikhoan" class="four-row m-3 d-flex">
-          
-           <div class="five-row m-3 d-flex">
-            <div class="col-4">
-                <div class="card">
-                    <img src="http://d2lllwtzebgpl1.cloudfront.net/4dd7c0209e20cf15530cb109197a842f_listingImg_Nfz0B1SHnG.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-text">Off-White X Nike The Ten: Air Vapormax
-                        </p>
-                        <p>US 10.5 </p>
-                        <p>$585</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="http://d2lllwtzebgpl1.cloudfront.net/7aa40f673445ea074039f858800ae158_listingImg_Nfz0B1SHnG.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-text">Supreme Smoke Tee
-                        </p>
-                        <p>M </p>
-                        <p>$85</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="http://d2lllwtzebgpl1.cloudfront.net/3798392f608ef48187642c13e0f2c92f_listingImg_Nfz0B1SHnG.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-text">Supreme Realtree Camo Backpack
-                        </p>
-
-                        <p>$185</p>
-                    </div>
-                </div>
-            </div>
+            </div>         
         </div>
+        <br>
 
+    <div class="container">
+        <div class="row">
+        @foreach($products as $product)
+        <div class="col-lg-3 col-md-12 item-container mx-2 ">
+            <form action="{{asset('products/'.$product->id)}}" method="get">
+                <button type="submit" class=" w-100 btn btn-white">
+                    <div class="w-100">
+                        <img src="{{asset('image/'.$product->images[0]->name_image)}}" width="100%" height="170px">
+                    </div>
+
+                    <div class="d-flex justify-content-between my-1">
+                        <span><b>{{$product -> price}}</b></span>
+                        <span><small>by HolyFirst</small></span>
+                    </div>
+                    <center>
+                        <strong>{{$product -> name}}</strong>
+                    </center>
+
+                </button>
+            </form>
+        </div>
+        @endforeach
         </div>
     </div>
-
-  
     <script>
      
         jQuery(document).ready(function() {

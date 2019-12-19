@@ -39,7 +39,9 @@ class CommentController extends Controller
         $comment = new Comment;
         $comment->name = $request->name;
         $comment->content = $request->content;
+        $comment->product_id = $request->product_id;
         $comment->save();
+        
         return back();
     }
 

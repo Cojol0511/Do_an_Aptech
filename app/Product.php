@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+	public function sluggable()
+	{
+		return [
+			'slug'=> [ 
+						'source' => 'title'
+					]
+			];
+	}
 	public function comment()
 	{
     	return $this->hasMany('App\Comment');

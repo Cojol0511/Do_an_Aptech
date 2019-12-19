@@ -62,6 +62,7 @@
 		<div class="col-6  d-flex align-items-center">
 			<form action="{{route('comments.store')}}" method="POST">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<input type="hidden" name="product_id" value="{{$product->id}}">
 				<div class="form-group">
 					<label for="email">Email: </label>
 					<input required type="email" name="email" id="email" class="form-control" placeholder="Abc@gmail.com">
@@ -75,7 +76,7 @@
 					<textarea name="content" id="cm" class="form-control" cols="30" rows="2"></textarea>
 				</div>
 				<div class="form-group text-center">
-					<button type="submit" class="btn btn-default">Send</button>
+					<button type="submit" class="btn btn-success">Send</button>
 				</div>
 			</form>
 		</div>
@@ -96,10 +97,12 @@
 			@endforeach
 		</div>
 	</div>
-
+	
+</div>
+<div class="container">
+		<b >Có Thể Bạn Cũng Thích</b>
 	<div class="row">
 		<div class="col-12">
-		<b>Có Thể Bạn Cũng Thích</b>
 		<div class="d-flex my-3">
 			<form class="mx-4" action="">
 				<img src="http://aothudong.com/upload/product/atd-054/ao-len-nam-co-tron-day-dep.jpg" height="120px" width="120px">
@@ -131,7 +134,4 @@
 		</div>
 	</div>
 </div>
-<footer class="bg-light" style="height: 300px;">
-
-</footer>
 @endsection

@@ -18,14 +18,15 @@ Route::get('/', function () {
 	  $posts = Post::all();
         $products = Product::all();
         $image = Image::all();
-         return view('layouts.posts.index', 
-         [
-            'posts' => $posts,
-            'products' =>$products ,
-            'images' => $image
-        ]    
+         return view
+         ('layouts.posts.index', 
+             [
+                    'posts' => $posts,
+                   'products' =>$products ,
+                   'images' => $image
+               ]    
         );
-});
+       });
 
 Auth::routes();
 
@@ -42,15 +43,16 @@ Route::resource('comments', 'CommentController');
 
 
 Route::get('/profile',function(){
-	return view('layouts.user.profile');
+       $products = Product::get()->where('user_id',Auth::user()->id);
+       return view('layouts.user.profile',
+       [
+              'products' => $products
+       ]);
 })->name('profile');
 
 Route::get('/account',function(){
 	return view('layouts.user.account');
 }) ->name('account');
-
-Route::resource('posts', 'PostController');   
-
 
 Route::get('/detail',function(){
        return view('layouts.posts.index');  

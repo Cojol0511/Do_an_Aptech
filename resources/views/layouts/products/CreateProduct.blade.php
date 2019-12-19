@@ -7,11 +7,11 @@
 			<form class="col-12"  action="{{route('products.store')}} " method="post" enctype="multipart/form-data">
 	
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
-						
+					<input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 					<label for=""><h5 class="text-dark">Tên Sản Phẩm :</h5></label>
 					<input class="form-control w-25" type="text" name="name" 
 					placeholder="Nhập Tên Sản Phẩm">
-
+				
 					<label for=""><h5> Chọn Hình Ảnh Của Sản Phẩm :</h5>
 					</label>
 					<input class="btn btn-success" type="file" name="yourfile[]" multiple>

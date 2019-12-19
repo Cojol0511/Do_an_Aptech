@@ -71,6 +71,7 @@ class ProductController extends Controller
             $product->price = $request->price;
             $product->detail_product = $request->detail;
             $product->size = $request->size;
+            $product->user_id = $request->user_id;
             //  $product->type = $request->type;
             $product->save();
             //lấy tên file gốc cộng thêm thời gian đang
@@ -100,7 +101,6 @@ class ProductController extends Controller
     {      
         $product = Product::find($id);
         $images = Image::where('product_id',$id)->get();
-        //$comments = Comment::where('product_id', $id)->get();
         $comments = Comment::where('product_id',$id)->get();
 
         return view('layouts.products.detailproduct',
