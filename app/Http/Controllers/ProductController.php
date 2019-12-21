@@ -56,16 +56,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request ->validate([
+            'name' => 'required',
+            'size' => 'required',
+            'detail'=> 'required',
+        ],[
+            'name.required' => 'Bạn phải nhập tên sản phẩm',
+            'size.reuqired' => 'Bạn chưa chọn size cho sản phẩm',
+            'detail.required'=> 'Detail là bắt buộc',
+        ]);
 
-        if (
-            $request->hasFile('yourfile') == 0 ||
-            empty($request->name)            ||
-            empty($request->detail)          ||
-            empty($request->price) //||
-            //empty($request->type)
-        ) {
+        if( $request->hasFile('yourfile') == 0 )
+        {
             return redirect()->route('products.create');
-        } else {
+        }
+        else
+        {
             $product = new Product;
             $product->name = $request->name;
             $product->price = $request->price;
@@ -89,6 +95,7 @@ class ProductController extends Controller
             }
             return redirect()->route('products.index');
         }
+        
     }
 
     /**

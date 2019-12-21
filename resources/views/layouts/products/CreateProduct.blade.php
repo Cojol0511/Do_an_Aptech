@@ -2,6 +2,16 @@
 
 @section('content')
 
+
+	@if($errors -> any())
+		<div class="alert alert-danger">
+			@foreach($errors->all() as $error)
+				{{$error}}
+			@endforeach
+
+		</div>
+	@endif
+
 	  	<div class="container my-2">
 	  		<div class="row">
 			<form class="col-12"  action="{{route('products.store')}} " method="post" enctype="multipart/form-data">
@@ -49,6 +59,7 @@
 	<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 	<script src="{{asset('ckfinder/ckfinder.js')}}"></script>
 	<script>
+	
 		CKEDITOR.replace('detail',{
 			   filebrowserBrowseUrl: "{{asset('ckfinder/ckfinder.html')}}",
  			   filebrowserUploadUrl: "{{asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files')}}"});
