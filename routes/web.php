@@ -1,6 +1,6 @@
 <?php
 
-use App\Post;
+
 use App\Product;
 use App\Image;
 /*
@@ -15,13 +15,11 @@ use App\Image;
 */
 
 Route::get('/', function () {
-	  $posts = Post::all();
         $products = Product::all();
         $image = Image::all();
          return view
-         ('layouts.posts.index', 
+         ('layouts.products.indexProduct', 
              [
-                    'posts' => $posts,
                    'products' =>$products ,
                    'images' => $image
                ]    
@@ -37,8 +35,6 @@ Route::resource('users', 'UserController');
 
 Route::resource('products', 'ProductController');
 
-Route::resource('posts', 'PostController');
-
 Route::resource('comments', 'CommentController');
 
 
@@ -50,10 +46,18 @@ Route::get('/profile',function(){
        ]);
 })->name('profile');
 
+
 Route::get('/account',function(){
 	return view('layouts.user.account');
 }) ->name('account');
 
-Route::get('/detail',function(){
-       return view('layouts.posts.index');  
+
+
+Route::get('/search',function(){
+       $products = Product::get()->where('name',$_GET['search']);
+       dd($products);
 });
+
+
+
+

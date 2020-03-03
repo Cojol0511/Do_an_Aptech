@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+
 use App\Product;
 use App\Image;
 use App\Comment;
@@ -17,21 +17,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
         $products = Product::all();
         $comments = Comment::all();
-        // foreach($products as $product)
-        // {
-        //     echo($product->id);
-           
-        //     $image = image::where('id_product', $product->id)>first();
-           
-        // } dd($image);
-       
+  
         return view(
             'layouts.products.indexProduct',
             [
-                'posts' => $posts,
                 'products' => $products,
                 'comments' => $comments
             ]
@@ -104,18 +95,13 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {      
-        $product = Product::find($id);
-        $images = Image::where('product_id',$id)->get();
-        $comments = Comment::where('product_id',$id)->get();
-
+    public function show($slug)
+    {     
+        $product = Product::whereSlug($slug)->first();
+      
         return view('layouts.products.detailproduct',
          [
-            'product' => $product,
-            'images' => $images,
-            'comments' => $comments
-
+            'product' => $product
         ]);
     }
 
@@ -150,6 +136,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        
     }
+
+
 }

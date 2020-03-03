@@ -2,36 +2,31 @@
 
 @section('content')
 <div class="container">
+
 	<div class="row my-5">
 
 		<!-- slide hien thi cho san pham -->
 
 		<div class="col-5">
-			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+			
 				<div class="carousel-inner">
+				<?php
+					$images = $product->images;
+				?>
 				@foreach($images as $image)
 					<div class="carousel-item active">
 						<img src="{{asset('image/'.$image->name_image)}}" class="d-block w-100" alt="...">
 					</div>
-					<div class="carousel-item">
-						<img src="{{asset('image/'.$image->name_image)}}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{asset('image/'.$image->name_image)}}" class="d-block w-100" alt="...">
-					</div>
+				
 				@endforeach
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				</a>
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-				</a>
-			</div>
-			<strong class="text-center">Hình Ảnh Của Sản Phẩm</strong>
+				<div class="my-5">
+				@foreach($images as $image)
+					
+						<img src="{{asset('image/'.$image->name_image)}}"  alt="..." height="50px" width="30%">
+				
+				@endforeach</div>
+			<h1>Hình Ảnh Sản Phẩm</h1>
 		</div>
 		<div class="col-1"></div>
 		<div class="col-5">
@@ -82,8 +77,12 @@
 		</div>
 		<div class="col-6">
 			<h1>Commented</h1>
+			<?php
+				$comments = $product->comment;
+				
+			?>		
 			@foreach($comments as $comment)
-				<ul>
+			<ul>
 					<li>
 						{{$comment->name}}
 						<br>
@@ -92,7 +91,7 @@
 					<li>
 						{{$comment->content}}
 					</li>
-				</ul>
+			</ul>
 				<hr>
 			@endforeach
 		</div>

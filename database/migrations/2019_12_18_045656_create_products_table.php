@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->string('size');
             $table->string('price');
-            $table->string('detail_product');
+            $table->longText('detail_product');
             $table->string('user_id');
             $table->timestamps();
         });

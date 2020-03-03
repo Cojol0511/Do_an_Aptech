@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,22 +13,23 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('bootstrap.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+   <link rel="stylesheet" href="{{asset('cssIndexHtml.css')}}">
 </head>
 
-<body>
+<body >
     <div class="container mt-1 sticky-top bg-white">
 
         <div class="row align-items-center">
-            <a  class="col-12 col-lg-2 mt-4 d-flex text-decoration-none text-dark"
+            <a   class="col-12 col-lg-2 mt-4 d-flex text-decoration-none text-dark"
              href="{{asset("/")}}">
                 <img class="mb-4 mx-1 border-right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoOwQ0SnSVqrakbM5xqYcoD10px2o9AqFaAAUWRTwBMrgghv0&s" style="width: 30px; height: 30px;">
                 <h3 class="mx-2" style="font-family:Bodoni ">Buzz</h3>
 
             </a>
             <div class="col-12 col-lg-6 d-flex">
-                <form action="#" class="search-form d-inline-block " style="width:100%">
+                <form action="{{asset("/search")}}" class="search-form d-inline-block " style="width:100%" method="get">
                     <div class="d-flex">
-                        <input type="email" class="form-control" placeholder="Search...">
+                        <input name="search" type="text" class="form-control" placeholder="Search...">
                         <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
@@ -38,10 +38,10 @@
                 <div class="ml-md-auto top-social d-none d-lg-inline-block">
                     <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-bullhorn fa-2px"></i></a>
                     <a href="#" class="d-inline-block p-3 text-dark"><i class="fas fa-comment fa-2px"></i></a>
-                    <a href="{{asset("/profile")}}" class="d-inline-block p-3 text-dark"><i class="fas fa-user fa-2px"></i></a>
-
+                    <a href="{{asset("/profile")}}" class="d-inline-block p-3 text-dark"><i class="fas fa-cart-arrow-down"></i></a>
+                   
                 </div>
-
+                
                 <div id="app" >
 
 
@@ -68,7 +68,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">
+                                           document.getElementById('logout-form').submit();">
                                         Đăng xuất
                                     </a>
 
