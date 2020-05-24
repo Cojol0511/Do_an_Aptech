@@ -3,4 +3,111 @@
                transition: all .2s;
                 transform: scaleX(1.1) scaleY(1.1) ;
             }
+.container-fluid{
+    height: 43px;
+    background-color: #1260AB;
+    
+}
+#danhmuc {
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+}
+#danhmuc li a {
+    color: black;
+    font-family: Futara;
+    font-weight: lighter;
+    font-size: 16px;
+    text-decoration: none;
+   padding: 12px 24px 12px 0px;
+    
+}
+#danhmuc li:hover a{
+    color: lavender;
+}
+#danhmuc li div{
+    width: 0px;
+    height:1px;
+    background: red;
+   
+}
+#danhmuc li:hover div{
+    animation-name: example;
+    animation-duration: 0.5s;  
+    animation-fill-mode: forwards;
+   
+}
+  @keyframes example {
+    from {width: 1px;}
+    to {width: 80%; background-color: blue;}
+  }
+#menu {
+    height: 40px;
+    font-size: 16px;
+    z-index: 1;
+    align-items: center;
+    padding: 0;
+    margin: 0 0 0 80px ;
+    display: flex;
+}
+#menu li{
+    padding: 10px;
+    margin-top: 5px;
+    position: relative;
+    margin-right: 40px;
+    list-style: none;
+}
 
+#menu li a{
+    font-size: 20px;
+    font-family: -apple-;
+    color: white;
+    text-decoration: none;
+    
+}
+#menu li form button { 
+    overflow: hidden;
+ }
+#type{
+    font-family: -apple-;
+    color: white;
+    background-color: #1260AB;
+    border: none;
+    padding: 0;
+    
+}
+
+#menu li > .sub-menu {
+    position: absolute;
+    display: none;
+}
+
+#menu li:hover .sub-menu{
+    display: block;
+}
+.sub-menu li{
+    width: 90px;
+    background-color: #1260AB;
+    padding: 10px;
+    margin: 0px !important;
+    position: relative;
+    font-size: 16px !important;
+    font-family: -apple- !important;
+    
+}
+
+.item-container{
+    margin: 0px !important;
+    background-color: tomato;
+}
+
+footer{
+    background-color: #1260AB;
+    color: white;
+    height: auto;
+}
+.list-unstyled li a{
+    color:white;
+    text-decoration-color: #1260AB;
+    padding: 7px;
+}

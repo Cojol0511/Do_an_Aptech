@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Product;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,9 +13,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        //
+        return view('layouts.user.profile');
+    }
+
+    public function quanlysanpham()
+    {  
+        $products = Product::all();
+        return view('layouts.user.quanlysanpham',
+             [
+                'products' => $products
+            ]
+        );
     }
 
     /**

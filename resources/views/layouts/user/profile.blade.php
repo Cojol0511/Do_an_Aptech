@@ -1,7 +1,7 @@
 @extends('layouts.header2')
 
 @section('content')
-    <div class="container">
+    <div class="container my-5">
          <div class="second-row flex-row mx-4">
             <div class="col-12 ">
 
@@ -50,48 +50,14 @@
                  </form>   
             </div>
                 <div class="col-6">
-                    <button class="btn btn-lg btn-block text-dark btn-outline-secondary " onclick="sanpham()">Sản Phẩm Đang Bán</button>
+                    <button class="btn btn-lg btn-block text-dark btn-outline-secondary " >
+                        <a style="text-decoration: none; color: black" 
+                            href="http://localhost:8000/quanlysanpham" >
+                            Sản Phẩm Đang Bán</a>
+                    </button>
                 </div>
             </div>         
         </div>
         <br>
 
-    <div class="container">
-        <div class="row">
-        @foreach($products as $product)
-        <div class="col-lg-3 col-md-12 item-container mx-2 ">
-            <form action="{{asset('products/'.$product->slug)}}" method="get">
-                <button type="submit" class=" w-100 btn btn-white">
-                    <div class="w-100">
-                        <img src="{{asset('image/'.$product->images[0]->name_image)}}" width="100%" height="170px">
-                    </div>
-
-                    <div class="d-flex justify-content-between my-1">
-                        <span><b>{{$product -> price}}</b></span>
-                        <span><small>by HolyFirst</small></span>
-                    </div>
-                    <center>
-                        <strong>{{$product -> name}}</strong>
-                    </center>
-
-                </button>
-            </form>
-        </div>
-        @endforeach
-        </div>
-    </div>
-    <script>
-     
-        jQuery(document).ready(function() {
-            tab = $('.on image p p p');
-            tab.on('click', function(event) {
-                event.preventDefault();
-                tab.removeClass('active');
-                $(this).addClass('active');
-                tab_content = $(this).attr('href');
-                $('div[id$="tab-content"]').removeClass('active');
-                $(tab_content).addClass('active');
-            });
-        });
-    </script>
 @endsection

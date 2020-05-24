@@ -86,30 +86,12 @@
 		</div>
 		<div class="col-1"></div>
 	</div>
-
+	
 	<div class="row">
-		<div class="col-6  d-flex align-items-center">
-			<form action="{{route('comments.store')}}" method="POST">
-				<input type="hidden" name="_token" value="{{csrf_token()}}">
-				<input type="hidden" name="product_id" value="{{$product->id}}">
-				<div class="form-group">
-					<label for="email">Email: </label>
-					<input required type="email" name="email" id="email" class="form-control" placeholder="Abc@gmail.com">
-				</div>
-				<div class="form-group">
-					<label for="name">Name: </label>
-					<input required type="text" name="name" id="name" class="form-control" placeholder="Nguyen A">
-				</div>
-				<div class="form-group">
-					<label for="cm">Comment: </label>
-					<textarea name="content" id="cm" class="form-control" cols="30" rows="2"></textarea>
-				</div>
-				<div class="form-group text-center">
-					<button type="submit" class="btn btn-success">Send</button>
-				</div>
-			</form>
+		<div class="col-6 d-flex align-items-center">
+			<div class="fb-comments" data-href="http://localhost:8000/products/{{$product -> slug}}" data-numposts="100" data-width="100%"></div>
 		</div>
-		<div class="col-6">
+		<!-- <div class="col-6">
 			<h1>Commented</h1>
 			<?php
 				$comments = $product->comment;
@@ -128,10 +110,11 @@
 			</ul>
 				<hr>
 			@endforeach
-		</div>
+		</div> -->
 	</div>
 	
 </div>
+<br>
 <div class="container">
 		<b >Có Thể Bạn Cũng Thích</b>
 	<div class="row">

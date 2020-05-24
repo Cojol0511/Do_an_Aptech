@@ -51,10 +51,12 @@ class ProductController extends Controller
             'name' => 'required',
             'size' => 'required',
             'detail'=> 'required',
+            'type'=>'required'
         ],[
             'name.required' => 'Bạn phải nhập tên sản phẩm',
             'size.reuqired' => 'Bạn chưa chọn size cho sản phẩm',
             'detail.required'=> 'Detail là bắt buộc',
+            'type.required'=> 'Type là bắt buộc'
         ]);
 
         if( $request->hasFile('yourfile') == 0 )
@@ -68,13 +70,15 @@ class ProductController extends Controller
             $product->price = $request->price;
             $product->detail_product = $request->detail;
             $product->size = $request->size;
+            $product->type = $request->type;
             $product->user_id = $request->user_id;
-            //  $product->type = $request->type;
+        
             $product->save();
-            //lấy tên file gốc cộng thêm thời gian đang
+           
             $yourfile = $request->yourfile;
             foreach ($yourfile as $image) {
-
+                
+                //lấy tên file gốc cộng thêm thời gian đang
                 $filename = date('YmdHis') . "-" . $image->getClientOriginalName();
 
                 //lưu file 
@@ -111,9 +115,13 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
-    {
-        //
+    public function edit($slug)
+    {   
+        $product = Product::whereSlug($slug)->first();
+        return view('layouts.products.editProduct',
+         [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -123,9 +131,53 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request,$slug)
     {
-        //
+        $product = Product::whereSlug($slug)->first();
+
+        $request ->validate([
+            'name' => 'required',
+            'size' => 'required',
+            'detail'=> 'required',
+            'type'=>'required'
+        ],[
+            'name.required' => 'Bạn phải nhập tên sản phẩm',
+            'size.reuqired' => 'Bạn chưa chọn size cho sản phẩm',
+            'detail.required'=> 'Detail là bắt buộc',
+            'type.required'=> 'Type là bắt buộc'
+        ]);
+
+        if( $request->hasFile('yourfile') == 0 )
+        {
+            dd("Bạn Chưa Chọn File, Vui Quay Lai Trang Trước z");
+        }
+        else
+        {
+            $product->name           = $request->name;
+            $product->price          = $request->price;
+            $product->detail_product = $request->detail;
+            $product->size           = $request->size;
+            $product->type           = $request->type;
+            $product->user_id        = $request->user_id;
+        
+            $product->save();
+           
+            $yourfile = $request->yourfile;
+            foreach ($yourfile as $image) {
+                
+                //lấy tên file gốc cộng thêm thời gian đang
+                $filename = date('YmdHis') . "-" . $image->getClientOriginalName();
+
+                //lưu file 
+                $image->move('image', $filename);
+                Image::insert([
+                        'name_image' => $filename,
+                        'product_id' => $product->id
+                    ]);
+            }
+            return redirect()->route('quanlysanpham');
+        }
+
     }
 
     /**
@@ -134,10 +186,24 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        
+        $product = Product::where('id',$id)->first();
+
+        $product -> delete ();
+        return redirect() ->route('quanlysanpham');
     }
 
+    public function type(){
+        $products = Product::get()->where('type',$_GET['bongDa']);
 
+        return view('layouts.products.indexProduct',
+        [
+               'products' => $products
+        ]);
+    }
+    public function typedb(){
+        $products = Product::all();
+        return  $products;
+    }
 }

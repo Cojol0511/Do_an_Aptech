@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
 use App\Product;
 use App\image;
 
@@ -26,12 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        $products = Product::all();
+       $products = Product::all();
        $image = image::all();
-         return view('layouts.posts.index', 
+         return view('layouts.products.indexProduct', 
          [
-            'posts' => $posts,
             'products' =>$products ,
             'images' => $image
         ]    
